@@ -14,6 +14,7 @@ return new class extends Migration
     public function up(){
 
         Schema::create('likes', function (Blueprint $table) {
+            $table->increments('id');
             $table->integer("liker")->unsigned();
             $table->integer("liked")->unsigned();
             $table->foreign('liker')->references('id')->on('users')->onDelete('cascade');
@@ -22,6 +23,7 @@ return new class extends Migration
         });
 
         Schema::create('blocks', function (Blueprint $table) {
+            $table->increments('id');
             $table->integer("blocker")->unsigned();
             $table->integer("blocked")->unsigned();
             $table->foreign('blocker')->references('id')->on('users')->onDelete('cascade');
@@ -30,6 +32,7 @@ return new class extends Migration
         });
 
         Schema::create('favorites', function (Blueprint $table) {
+            $table->increments('id');
             $table->integer("favoriter")->unsigned();
             $table->integer("favorited")->unsigned();
             $table->foreign('favoriter')->references('id')->on('users')->onDelete('cascade');
@@ -38,6 +41,7 @@ return new class extends Migration
         });
 
         Schema::create('chats', function (Blueprint $table) {
+            $table->increments('id');
             $table->integer("user1")->unsigned();
             $table->integer("user2")->unsigned();
             $table->foreign('user1')->references('id')->on('users')->onDelete('cascade');
@@ -46,6 +50,7 @@ return new class extends Migration
         });
 
         Schema::create('messages', function (Blueprint $table) {
+            $table->increments('id');
             $table->integer("chat_id");
             $table->integer("sender_id")->unsigned();
             $table->integer("contents");
