@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string("bio");
             $table->string("pref");
             $table->string("image");
+            $table->string("location");
             $table->timestamps();
         });
     }
