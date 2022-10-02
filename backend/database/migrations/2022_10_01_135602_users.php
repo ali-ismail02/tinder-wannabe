@@ -14,33 +14,42 @@ return new class extends Migration
     public function up(){
 
         Schema::create('likes', function (Blueprint $table) {
-            $table->integer("liker");
-            $table->integer("liked");
+            $table->integer("liker")->unsigned();
+            $table->integer("liked")->unsigned();
+            $table->foreign('liker')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('liked')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
 
         Schema::create('blocks', function (Blueprint $table) {
-            $table->integer("blocker");
-            $table->integer("blocked");
+            $table->integer("blocker")->unsigned();
+            $table->integer("blocked")->unsigned();
+            $table->foreign('blocker')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('blocked')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
 
         Schema::create('favorites', function (Blueprint $table) {
-            $table->integer("favoriter");
-            $table->integer("favorited");
+            $table->integer("favoriter")->unsigned();
+            $table->integer("favorited")->unsigned();
+            $table->foreign('favoriter')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('favorited')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
 
         Schema::create('chats', function (Blueprint $table) {
-            $table->integer("user1");
-            $table->integer("user2");
+            $table->integer("user1")->unsigned();
+            $table->integer("user2")->unsigned();
+            $table->foreign('user1')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('user2')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
 
         Schema::create('messages', function (Blueprint $table) {
             $table->integer("chat_id");
-            $table->integer("sender_id");
+            $table->integer("sender_id")->unsigned();
             $table->integer("contents");
+            $table->foreign('sender_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
 
