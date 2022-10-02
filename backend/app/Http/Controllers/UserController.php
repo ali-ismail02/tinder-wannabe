@@ -32,6 +32,25 @@ class UserController extends Controller
         ]);
     }
 
+    public function favorites(Request $request){
+        $blck1 = Block::where('blocked',$request['userData']['id'])->get("blocker");
+        $blck2 = Block::where('blocker',$request['userData']['id'])->get("blocked");
+        Favorite::where('favoriter',$request['userData']['id'])
+                ->whereNotIn('favorited',$blck1)
+                ->whereNotIn('favorited',$blck2)
+                ->get();
+            return response()->json([
+                "status" => "deleted"
+            ]);
+        $fav = Favorite::create([
+            'favoriter' => $request['userData']['id'],
+            'favorited' => $request['id'],
+        ]);
+        return response()->json([
+            "status" => "added"
+        ]);
+    }
+
     public function addOrRemoveBlock(Request $request){
         if($blck = Block::where('blocker',$request['userData']['id'])
                         ->where('blocked',$request['id'])
@@ -55,6 +74,7 @@ class UserController extends Controller
         $blck2 = Block::where('blocker',$request['userData']['id'])->get("blocked");
         $user = User::where('gender',$request['userData']['pref'])
                     ->where('pref',$request['userData']['gender'])
+                    ->where('id','!=',$request['userData']['id'])
                     ->whereNotIn('id',$blck1)
                     ->whereNotIn('id',$blck2)
                     ->orderBy('location',"ASC")
@@ -70,6 +90,7 @@ class UserController extends Controller
         $user = User::where('name', 'like', '%' . $request['search'] . '%')
                     ->where('gender',$request['userData']['pref'])
                     ->where('pref',$request['userData']['gender'])
+                    ->where('id','!=',$request['userData']['id'])
                     ->whereNotIn('id',$blck1)
                     ->whereNotIn('id',$blck2)
                     ->orderBy('location',"ASC")

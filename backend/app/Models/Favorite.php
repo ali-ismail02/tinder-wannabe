@@ -11,5 +11,5 @@ class Favorite extends Model
     protected $fillable = ['favoriter','favorited'];
     public function favorites() {
         return $this->belongsToMany('User', 'favorites', 'favoriter', 'favorited');
-      }
+    }
 }
