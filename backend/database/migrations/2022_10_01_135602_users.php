@@ -51,9 +51,10 @@ return new class extends Migration
 
         Schema::create('messages', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer("chat_id");
+            $table->integer("chat_id")->unsigned();
             $table->integer("sender_id")->unsigned();
-            $table->integer("contents");
+            $table->string("contents");
+            $table->foreign('chat_id')->references('id')->on('chats')->onDelete('cascade');
             $table->foreign('sender_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
