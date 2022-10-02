@@ -17,5 +17,6 @@ Route::group([
 });
 
 Route::group(["middleware" => "jwt"], function(){
-    Route::post('favorite', [UserController::class, 'favorite']);
+    Route::post('favorite', [UserController::class, 'addOrRemoveFavorite']);
+    Route::post('block', [UserController::class, 'addOrRemoveBlock']);
 }); 

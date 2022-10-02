@@ -5,10 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Favorite;
+use App\Models\Block;
+
 
 class UserController extends Controller
 {
-    public function favorite(Request $request)
+    public function addOrRemoveFavorite(Request $request)
     {
         if($fav = Favorite::where('favoriter',$request['userData']['id'])->where('favorited',$request['id'])->first()){
             $fav->delete();
@@ -25,26 +27,21 @@ class UserController extends Controller
         ]);
     }
 
-    function addOrUpdateStore(Request $request, $id = "add"){
-        if($id == "add"){
-            $store = new Store; 
-        }else{
-            $store = Store::find($id);
-        }
-
-        $store->name = $request->name ? $request->name : $store->name;
-        $store->category_id = $request->category_id? $request->category_id : $store->category_id;
-
-        if($store->save()){
+    public function addOrRemoveBlock(Request $request)
+    {
+        if($blck = Block::where('blocker',$request['userData']['id'])->where('blocked',$request['id'])->first()){
+            $blck->delete();
             return response()->json([
-                "status" => "Success",
-                "data" => $store
+                "status" => "deleted"
             ]);
         }
-
+        $blck = Block::create([
+            'blocker' => $request['userData']['id'],
+            'blocked' => $request['id'],
+        ]);
         return response()->json([
-            "status" => "Error",
-            "data" => "Error creating a model"
+            "status" => "added"
         ]);
     }
+
 }
