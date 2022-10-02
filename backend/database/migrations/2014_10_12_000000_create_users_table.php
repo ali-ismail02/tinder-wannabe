@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string("name");
             $table->string("email");
             $table->string("password");
-            $table->date("dob");
+            $table->date("dob")->nullable();
             $table->string("gender");
             $table->string("bio");
             $table->string("pref");

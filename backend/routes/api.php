@@ -23,6 +23,5 @@ Route::group(["middleware" => "jwt"], function(){
     Route::post('search', [UserController::class, 'searchUsers']);
     Route::post('chats', [UserController::class, 'chats']);
     Route::post('messages', [UserController::class, 'chatAddorOpen']);
-
-
+    Route::post('signUp', [UserController::class, 'signUp']);
 }); 
