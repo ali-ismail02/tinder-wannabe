@@ -12,6 +12,8 @@ Route::group(['prefix' => 'auth'], function () {
     Route::post('me', [AuthController::class, 'me']);
 });
 
+Route::post('signUp', [UserController::class, 'signUp']);
+
 Route::group(["middleware" => "JWT"], function(){
     Route::post('favorite', [UserController::class, 'addOrRemoveFavorite']);
     Route::post('block', [UserController::class, 'addOrRemoveBlock']);
@@ -19,5 +21,4 @@ Route::group(["middleware" => "JWT"], function(){
     Route::post('search', [UserController::class, 'searchUsers']);
     Route::post('chats', [UserController::class, 'chats']);
     Route::post('messages', [UserController::class, 'chatAddorOpen']);
-    Route::post('signUp', [UserController::class, 'signUp']);
 }); 

@@ -18,8 +18,8 @@
                 <button class="form-btn" id="login">Sign In</button>
             </div>
             <div class="form display-none">
-                <input type="file" accept="image/png" style="display:none;" id="image" required>
-                <label for="image"><div class="form-img"></div></label>
+                <input type="file" accept="image/png" style="display:none;" id="image">
+                <label for="image"><div class="form-img" id="form-img"></div></label>
                 <input class="input" type="text" placeholder="Name" id="name" required>
                 <input class="input" type="text" placeholder="Email" id="email" required>
                 <input class="input" type="password" placeholder="Password" id="password" required>
@@ -27,14 +27,14 @@
                     <div class="flex-col width-40">
                         <p>Gender:</p>
                         <select id="gender" class="input" required>
-                            <option value="Male">Male</option>
+                            <option selected value="Male">Male</option>
                             <option value="Female">Female</option>
                         </select>
                     </div>
                     <div class="flex-col width-40">
                         <p>Preference:</p>
                         <select id="pref" class="input" required>
-                            <option value="Male">Male</option>
+                            <option selected value="Male">Male</option>
                             <option value="Female">Female</option>
                         </select>
                     </div>
@@ -45,6 +45,7 @@
                     <p>Date of birth:</p>
                     <input class="input" type="date" id="dob" required>
                 </div>
+                <p id="email-taken">Email taken</p>
                 <p class="switch-form">Already have an account?</p>
                 <button class="form-btn" id="signUp">Sign Up</button>
             </div>

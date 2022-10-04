@@ -17,10 +17,10 @@ class UserController extends Controller
 {
 
     public function signUp(Request $request){
-        if(User::where('email',$request['email'])->get()== []){
+        if(count(User::where('email',$request['email'])->get())){
             return response()->json([
                 "status" => "0",
-                "message" => $user
+                "message" => $request['email']
             ]);
         }
         
