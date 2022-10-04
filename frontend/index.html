@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="styles/styles.css" rel="stylesheet">
+        <title>Tinder-Wannebe</title>
+    </head>
+    <body>
+        <div class="signup bg">
+            <div class="form signin-form">
+                <img src="assets/images/tinder.svg" class="form-img">
+                <input class="input" type="text" placeholder="Email" id="email-login" required>
+                <input class="input" type="password" placeholder="Password" id="Password-login" required>
+                <button class="form-btn" id="login">Sign In</button>
+            </div>
+            <div class="form" style="display: none;">
+                <input type="file" accept="image/png" style="display:none;" id="image" required>
+                <label for="image"><div class="form-img"></div></label>
+                <input class="input" type="text" placeholder="Name" id="name" required>
+                <input class="input" type="text" placeholder="Email" id="email" required>
+                <input class="input" type="password" placeholder="Password" id="password" required>
+                <div class="flex width-90 justify-between gap-5">
+                    <div class="flex-col width-40">
+                        <p>Gender:</p>
+                        <select id="gender" class="input" required>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                        </select>
+                    </div>
+                    <div class="flex-col width-40">
+                        <p>Preference:</p>
+                        <select id="pref" class="input" required>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                        </select>
+                    </div>
+                </div>
+                <input class="input" type="text" placeholder="Address" id="address" required>
+                <input class="input" type="text" placeholder="Bio" id="bio" required>
+                <div class="flex-col">
+                    <p>Date of birth:</p>
+                    <input class="input" type="date" id="dob" required>
+                </div>
+                <button class="form-btn" id="signUp">Sign Up</button>
+            </div>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js"></script>
+        <script src="page_scripts.js"></script>
+    </body>
+</html>

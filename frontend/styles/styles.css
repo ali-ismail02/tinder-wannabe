@@ -1,0 +1,137 @@
+*{
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+
+/* index */
+
+.signup {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    align-items: center;
+    justify-content: center;
+    background-image: url(../assets/images/7995347.webp);
+}
+
+.form {
+    width: 90vw;
+    height: 100vw;
+    max-width: 600px;
+    max-height: 700px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 25px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);;
+    background-color: white;
+}
+.signin-form {
+    max-height: 400px;
+}
+
+.form-img {
+    height: 100px;
+    width: 100px;
+    margin: 30px 0;
+    border-radius: 50%;
+}
+
+.form > label >div {
+    background-image: url(../assets/images/no-photo.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    cursor: pointer;
+}
+
+.bg {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.input {
+    width: 90%;
+    border: 1px solid rgb(148, 148, 148);
+    border-radius: 5px;
+    padding: 10px;
+    height: 40px;
+    font-size: 14px;
+    margin: 10px 5%;
+}
+
+.form > .flex-col {
+    width: 100%;
+}
+
+.form p {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.form > .flex-col > p {
+    font-size: 14px;
+    font-weight: bold;
+    margin: 0px;
+    padding-left: 5%;
+}
+
+#dob {
+    cursor: pointer;
+}
+
+.form select {
+    height: 40px;
+    width: 100%;
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+.form-btn {
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    margin: 10px 0;
+    background-color: rgba(252,86,110,255);
+    font-size: 20px;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+/* Utilities */
+
+.flex {
+    display: flex;
+}
+
+.flex-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.allign-start {
+    align-self: flex-start;
+}
+
+.width-40{
+    width: 50%;
+}
+
+.width-90{
+    width: 90%;
+}
+
+.gap-5{
+    gap: 5%;
+}
+
