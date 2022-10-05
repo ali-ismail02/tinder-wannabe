@@ -29,7 +29,7 @@ class UserController extends Controller
         $img = str_replace(' ', '+', $img);
         $data = base64_decode($img);
         $filee = uniqid() . '.png';
-        $file = public_path('images')."/images".$filee;
+        $file = public_path('images').$filee;
         $images_to_save = "/backend/public/".$filee;
         $dob = $request['dob'];
         User::create([
