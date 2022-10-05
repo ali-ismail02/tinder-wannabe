@@ -23,11 +23,14 @@ header{
 
 .navbar {
     display: flex;
+    position: sticky;
+    top: 0;
     height: 80px;
     align-items: center;
     justify-content: center;
     background-color: white;
     width: 100vw;
+    z-index: 10;
 }
 
 .navbar > div > a {
@@ -35,10 +38,12 @@ header{
     font-size: 26px;
     font-weight: 700;
     text-decoration: none;
+    z-index: 10;
 }
 
 .navbar > div ul {
     list-style: none;
+    z-index: 10;
     display: flex;
 }
 
@@ -47,6 +52,20 @@ header{
     font-weight: 700;
     margin: 0 20px;
     text-decoration: none;
+    z-index: 10;
+    color: black;
+}
+
+.search-input {
+    position: fixed ;
+    right: 10vw;
+    margin-top: 85px;
+    width: 200px;
+    border-radius: 9999px;
+    height: 40px;
+    padding: 10px 20px;
+    font-size: 14px;
+    background-color: white;
     color: black;
 }
 

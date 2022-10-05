@@ -1,22 +1,24 @@
+const search_input = document.getElementById("search-input")
 const cards = document.getElementById("cards")
 const profile_page = document.querySelector(".profile-view-main")
 const profile_name = document.querySelector(".profile-view-name")
 const profile_bio = document.querySelectorAll(".profile-view-bio")
 const profile_image = document.querySelector(".profile-view-image")
 const close_button = document.getElementById('close')
+let profiles = new Array()
 let response
 
 //functions
 
 const getAge = (dateString) => {
-    var today = new Date();
-    var birthDate = new Date(dateString);
-    var age = today.getFullYear() - birthDate.getFullYear();
-    var m = today.getMonth() - birthDate.getMonth();
+    let today = new Date()
+    let birthDate = new Date(dateString)
+    let age = today.getFullYear() - birthDate.getFullYear()
+    let m = today.getMonth() - birthDate.getMonth()
     if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
-        age--;
+        age--
     }
-    return age;
+    return age
 }
 
 const construct = (data) => {
@@ -49,6 +51,7 @@ const construct = (data) => {
         profile_image.classList.add('bg')
         profile_page.style.display = "flex"
     })
+    profiles.push(card)
 }
 
 const onLoad = async () => {
@@ -58,10 +61,29 @@ const onLoad = async () => {
     }
 }
 
+const searchApi = async () => {
+    for(const card of profiles){
+        cards.removeChild(card)
+    }
+    profiles = []
+    const data = {
+        "search": search_input.value
+    }
+    response = await tinder.postAPI(tinder.baseURL + "/search", data, localStorage.getItem('jwt'))
+
+    for (const data of response.data.message) {
+        construct(data)
+    }
+}
+
 // adding eventlistners
 
 close_button.addEventListener('click', () => {
     profile_page.style.display = "none"
+})
+
+search_input.addEventListener('change', () => {
+    searchApi()
 })
 
 onLoad()

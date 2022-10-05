@@ -6,7 +6,6 @@ if(!window.location.pathname.includes("index.html")){
                                 <ul>
                                     <li><a href="feed.html">Feed</a></li>
                                     <li><a href="profile.html">Profile</a></li>
-                                    <li><a href="search.html">Search</a></li>
                                     <li><a href="index.html">Logout</a></li>
                                 </ul>
                             </div>
