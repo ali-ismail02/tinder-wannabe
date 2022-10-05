@@ -4,7 +4,10 @@ const profile_page = document.querySelector(".profile-view-main")
 const profile_name = document.querySelector(".profile-view-name")
 const profile_bio = document.querySelectorAll(".profile-view-bio")
 const profile_image = document.querySelector(".profile-view-image")
+const fav = document.getElementById('fav')
+const chat = document.getElementById('chat')
 const close_button = document.getElementById('close')
+let profile_id = 0
 let profiles = new Array()
 let response
 
@@ -19,6 +22,14 @@ const getAge = (dateString) => {
         age--
     }
     return age
+}
+
+const favorited = async (profile_id) => {
+    const data = {
+        "id": profile_id
+    }
+    response = await tinder.postAPI(tinder.baseURL + "/check-favorite", data, localStorage.getItem('jwt'))
+    return response.data.status
 }
 
 const construct = (data) => {
@@ -50,6 +61,8 @@ const construct = (data) => {
         profile_image.style.backgroundImage = `url(../../${data['image']})`
         profile_image.classList.add('bg')
         profile_page.style.display = "flex"
+        profile_id = data['id']
+        if(favorited(profile_id)) fav.innerHTML == "Favorited"
     })
     profiles.push(card)
 }
@@ -84,6 +97,18 @@ close_button.addEventListener('click', () => {
 
 search_input.addEventListener('change', () => {
     searchApi()
+})
+
+fav.addEventListener('click', async () => {
+    const data = {
+        "id": profile_id
+    }
+    response = await tinder.postAPI(tinder.baseURL + "/favorite", data, localStorage.getItem('jwt'))
+    if(response.data.status){
+        fav.innerHTML = "Favorited"
+        return
+    } 
+    fav.innerHTML = "Favorite"
 })
 
 onLoad()

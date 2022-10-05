@@ -16,6 +16,7 @@ Route::post('signUp', [UserController::class, 'signUp']);
 
 Route::group(["middleware" => "JWT"], function(){
     Route::post('favorite', [UserController::class, 'addOrRemoveFavorite']);
+    Route::post('check-favorite', [UserController::class, 'checkIfFavorited']);
     Route::post('block', [UserController::class, 'addOrRemoveBlock']);
     Route::post('users', [UserController::class, 'displayUsers']);
     Route::post('search', [UserController::class, 'searchUsers']);

@@ -57,7 +57,7 @@ class UserController extends Controller
                         ->first()){
             $fav->delete();
             return response()->json([
-                "status" => "deleted"
+                "status" => 0
             ]);
         }
         $fav = Favorite::create([
@@ -65,7 +65,7 @@ class UserController extends Controller
             'favorited' => $request['id'],
         ]);
         return response()->json([
-            "status" => "added"
+            "status" => 1
         ]);
     }
 
@@ -85,6 +85,20 @@ class UserController extends Controller
         ]);
         return response()->json([
             "status" => "added"
+        ]);
+    }
+
+    public function checkIfFavorited(Request $request){
+        $user = Favorite::where('favoriter',$request['userData']['id'])
+                ->where('favorited',$request['id'])
+                ->get();
+        if(count($user)){
+            return response()->json([
+                "status" => 1
+            ]);
+        }
+        return response()->json([
+            "status" => 0
         ]);
     }
 
