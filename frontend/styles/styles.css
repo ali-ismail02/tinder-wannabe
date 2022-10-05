@@ -14,6 +14,42 @@ body {
     display: flex;
     justify-content: center;
 }
+header{
+    width: 100vw;
+    position: fixed;
+}
+
+/* navbar */
+
+.navbar {
+    display: flex;
+    height: 80px;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    width: 100vw;
+}
+
+.navbar > div > a {
+    color: black;
+    font-size: 26px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.navbar > div ul {
+    list-style: none;
+    display: flex;
+}
+
+.navbar > div li a {
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0 20px;
+    text-decoration: none;
+    color: black;
+}
+
 /* index */
 
 .signup {
@@ -132,6 +168,10 @@ body {
 }
 
 /* feed.html */
+
+#cards {
+    margin-top: 100px;
+}
 
 .card {
     width: 250px;
@@ -259,10 +299,6 @@ body {
     flex-wrap: wrap;
 }
 
-.justify-between {
-    justify-content: space-between;
-}
-
 .justify-start {
     justify-content: flex-start;
 }
@@ -296,8 +332,12 @@ body {
 
 .container {
     max-width: 80vw;
-    width: fit-content;
+    width: 80vw;
     display: flex;
     justify-content: center;
+}
+
+.justify-between {
+    justify-content: space-between;
 }
 

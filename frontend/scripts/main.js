@@ -1,3 +1,22 @@
+if(!window.location.pathname.includes("index.html")){
+    const header = document.createElement('header')
+    header.innerHTML = `<nav class="navbar">
+                            <div class="container flex justify-between ">
+                                <a href="feed.html">Tinder Wannabe</a>
+                                <ul>
+                                    <li><a href="feed.html">Feed</a></li>
+                                    <li><a href="profile.html">Profile</a></li>
+                                    <li><a href="search.html">Search</a></li>
+                                    <li><a href="index.html">Logout</a></li>
+                                </ul>
+                            </div>
+                        </nav>`
+
+    document.body.insertBefore(header,document.body.firstChild)
+}
+
+
+
 const tinder = {};
 
 tinder.baseURL = "http://127.0.0.1:8000/api";
