@@ -166,6 +166,84 @@ body {
     text-overflow: ellipsis;
 }
 
+.profile-view-main{
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0,0,0,0.5);
+    position: fixed;
+}
+
+.profile-view {
+    width: 700px;
+    height: 90vh;
+    max-height: 600px;
+    display: flex;
+    background-color: rgba(247,247,247,255);
+    color: black;
+    border-radius: 25px;
+}
+
+.profile-view-image {
+    flex-basis: 50%;
+    border-top-left-radius:25px ;
+    border-top-right-radius:25px ;
+}
+
+.profile-view-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-basis: 50%;
+}
+
+.profile-view-info > div> img {
+    align-self: flex-end;
+    width: 25px;
+    margin: 10px;
+    cursor: pointer;
+}
+.profile-view-info > div{
+    margin-left: 30px;
+}
+
+.profile-view-name {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+.profile-view-bio{
+    margin: 10px 0;
+    font-size: 14px;
+}
+
+.profile-view-bio > span{
+    font-weight: 700;
+}
+
+.buttons-div {
+    margin-bottom: 20px;
+    margin-left: -30px;
+}
+
+.buttons-div button {
+    padding: 8px 10px;
+    font-size: 14px;
+}
+
+.buttons-div :nth-child(2){
+    margin-right: 30px;
+    margin-left: 10px;
+}
+
+.buttons-div :nth-child(1){
+    margin-right: 10px;
+}
+
 /* Utilities */
 
 .flex {
