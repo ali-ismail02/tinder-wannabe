@@ -29,8 +29,8 @@ class UserController extends Controller
         $img = str_replace(' ', '+', $img);
         $data = base64_decode($img);
         $filee = uniqid() . '.png';
-        $file = public_path('images').$filee;
-        $images_to_save = "/backend/public/".$filee;
+        $file = public_path('images')."\\".$filee;
+        $images_to_save = "/backend/public/images/".$filee;
         $dob = $request['dob'];
         User::create([
             'name' => $request['name'],
@@ -47,7 +47,7 @@ class UserController extends Controller
         file_put_contents($file, $data);
         return response()->json([
             "status" => "1",
-            "message" => "added"
+            "message" => $file
         ]);
     }
 
@@ -117,7 +117,8 @@ class UserController extends Controller
                     ->orderBy('location',"ASC")
                     ->get();
         return response()->json([
-            "status" => $user
+            "status" => 1,
+            "message" => $user
         ]);
     }
 
