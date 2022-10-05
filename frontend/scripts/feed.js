@@ -24,12 +24,13 @@ const getAge = (dateString) => {
     return age
 }
 
+//check if user is already favorited to change favorite button text
 const favorited = async (profile_id) => {
     const data = {
         "id": profile_id
     }
-    response = await tinder.postAPI(tinder.baseURL + "/check-favorite", data, localStorage.getItem('jwt'))
-    return response.data.status
+    let response = await tinder.postAPI(tinder.baseURL + "/check-favorite", data, localStorage.getItem('jwt'))
+    if(response.data.status) fav.innerHTML = "Favorited"
 }
 
 const construct = (data) => {
@@ -62,13 +63,13 @@ const construct = (data) => {
         profile_image.classList.add('bg')
         profile_page.style.display = "flex"
         profile_id = data['id']
-        if(favorited(profile_id)) fav.innerHTML == "Favorited"
+        favorited(profile_id)
     })
     profiles.push(card)
 }
 
 const onLoad = async () => {
-    response = await tinder.postAPI(tinder.baseURL + "/users", null, localStorage.getItem('jwt'))
+    let response = await tinder.postAPI(tinder.baseURL + "/users", null, localStorage.getItem('jwt'))
     for (const data of response.data.message) {
         construct(data)
     }
@@ -82,7 +83,7 @@ const searchApi = async () => {
     const data = {
         "search": search_input.value
     }
-    response = await tinder.postAPI(tinder.baseURL + "/search", data, localStorage.getItem('jwt'))
+    let response = await tinder.postAPI(tinder.baseURL + "/search", data, localStorage.getItem('jwt'))
 
     for (const data of response.data.message) {
         construct(data)
@@ -99,11 +100,13 @@ search_input.addEventListener('change', () => {
     searchApi()
 })
 
+
+// toggle favorite of user
 fav.addEventListener('click', async () => {
     const data = {
         "id": profile_id
     }
-    response = await tinder.postAPI(tinder.baseURL + "/favorite", data, localStorage.getItem('jwt'))
+    let response = await tinder.postAPI(tinder.baseURL + "/favorite", data, localStorage.getItem('jwt'))
     if(response.data.status){
         fav.innerHTML = "Favorited"
         return
