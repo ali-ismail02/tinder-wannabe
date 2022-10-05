@@ -4,6 +4,17 @@
     box-sizing: border-box;
 }
 
+body {
+    background-image: linear-gradient(to top right, rgba(251,61,123,255), rgba(252,109,96,255));
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+    min-width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 /* index */
 
 .signup {
@@ -12,9 +23,7 @@
     width: 100vw;
     align-items: center;
     justify-content: center;
-    background-image: url(../assets/images/7995347.webp);
 }
-
 .form {
     width: 90vw;
     height: 100vh;
@@ -26,7 +35,7 @@
     justify-content: center;
     border: none;
     border-radius: 25px;
-    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
     background-color: white;
 }
 .signin-form {
@@ -122,6 +131,42 @@
     font-size: 12px;
     display: none;
 }
+
+/* feed.html */
+
+.card {
+    width: 250px;
+    height: 350px;
+    border-radius: 25px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 30px 20px;
+}
+
+.card > img {
+    width: 250px;
+    max-height: 250px;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    align-self: center;
+}
+
+.name {
+    font-size: 20px;
+    margin: 10px;
+}
+
+.bio {
+    margin: 10px;
+    font-size: 14px;
+    overflow: hidden;
+    max-height: 75px;
+    text-overflow: ellipsis;
+}
+
 /* Utilities */
 
 .flex {
@@ -133,12 +178,27 @@
     flex-direction: column;
 }
 
+.wrap {
+    flex-wrap: wrap;
+}
+
 .justify-between {
     justify-content: space-between;
 }
 
-.allign-start {
-    align-self: flex-start;
+.justify-start {
+    justify-content: flex-start;
+}
+
+.justify-center{
+    justify-content: center;
+}
+
+.width-fit {
+    width: fit-content;
+}
+.allign-center {
+    align-self: center;
 }
 
 .display-none {
@@ -155,5 +215,12 @@
 
 .gap-5{
     gap: 5%;
+}
+
+.container {
+    max-width: 80vw;
+    width: fit-content;
+    display: flex;
+    justify-content: center;
 }
 

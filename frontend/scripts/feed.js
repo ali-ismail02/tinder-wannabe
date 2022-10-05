@@ -24,7 +24,7 @@ login.addEventListener("click", async () => {
         let response = await tinder.postAPI(tinder.baseURL + "/auth/login", data)
         if (response.data.status) {
             localStorage.setItem("jwt", response.data.token_type + " " + response.data.access_token)
-            window.open("pages/feed.html","_self")
+            console.log(localStorage.getItem("jwt"))
         } else {
             email_login.style.border = "1px red solid"
             password_login.style.border = "1px red solid"
@@ -87,7 +87,6 @@ signup.addEventListener("click", async () => {
         if (response.data.status == 1) {
             let login = await tinder.postAPI(tinder.baseURL + "/auth/login", data)
             localStorage.setItem("jwt", login.data.token_type + " " + login.data.access_token)
-            window.open("pages/feed.html","_self")
         } else {
             email.style.border = "1px red solid"
             dup_email.style.display = "block"
